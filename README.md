@@ -5,7 +5,7 @@ Home: https://github.com/drizzersilverberg/gradDescentR
 
 Package license: GPL-2.0-or-later
 
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-graddescent-feedstock/blob/master/LICENSE.txt)
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/r-graddescent-feedstock/blob/main/LICENSE.txt)
 
 Summary: An implementation of various learning algorithms based on Gradient Descent for dealing with regression tasks. The variants of gradient descent algorithm are : Mini-Batch Gradient Descent (MBGD), which is an optimization to use training data partially to reduce the computation load. Stochastic Gradient Descent (SGD), which is an optimization to use a random data in learning to reduce the computation load drastically. Stochastic Average Gradient (SAG), which is a SGD-based algorithm to minimize stochastic step to average. Momentum Gradient Descent (MGD), which is an optimization to speed-up gradient descent learning. Accelerated Gradient Descent (AGD), which is an optimization to accelerate gradient descent learning. Adagrad, which is a gradient-descent-based algorithm that accumulate previous cost to do adaptive learning. Adadelta, which is a gradient-descent-based algorithm that use hessian approximation to do adaptive learning. RMSprop, which is a gradient-descent-based algorithm that combine Adagrad and Adadelta adaptive learning ability. Adam, which is a gradient-descent-based algorithm that mean and variance moment to do adaptive learning. Stochastic Variance Reduce Gradient (SVRG), which is an optimization SGD-based algorithm to accelerates the process toward converging by reducing the gradient. Semi Stochastic Gradient Descent (SSGD),which is a SGD-based algorithm that combine GD and SGD to accelerates the process toward converging by choosing one of the gradients at a time. Stochastic Recursive Gradient Algorithm (SARAH), which is an optimization algorithm similarly SVRG to accelerates the process toward converging by accumulated stochastic information. Stochastic Recursive Gradient Algorithm+ (SARAHPlus), which is a SARAH practical variant algorithm to accelerates the process toward converging provides a possibility of earlier termination.
 
@@ -15,8 +15,8 @@ Current build status
 
 <table><tr><td>All platforms:</td>
     <td>
-      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=14434&branchName=master">
-        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/r-graddescent-feedstock?branchName=master">
+      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=14434&branchName=main">
+        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/r-graddescent-feedstock?branchName=main">
       </a>
     </td>
   </tr>
@@ -39,16 +39,41 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `r-graddescent` can be installed with:
+Once the `conda-forge` channel has been enabled, `r-graddescent` can be installed with `conda`:
 
 ```
 conda install r-graddescent
 ```
 
-It is possible to list all of the versions of `r-graddescent` available on your platform with:
+or with `mamba`:
+
+```
+mamba install r-graddescent
+```
+
+It is possible to list all of the versions of `r-graddescent` available on your platform with `conda`:
 
 ```
 conda search r-graddescent --channel conda-forge
+```
+
+or with `mamba`:
+
+```
+mamba search r-graddescent --channel conda-forge
+```
+
+Alternatively, `mamba repoquery` may provide more information:
+
+```
+# Search all versions available on your platform:
+mamba repoquery search r-graddescent --channel conda-forge
+
+# List packages depending on `r-graddescent`:
+mamba repoquery whoneeds r-graddescent --channel conda-forge
+
+# List dependencies of `r-graddescent`:
+mamba repoquery depends r-graddescent --channel conda-forge
 ```
 
 
@@ -66,10 +91,12 @@ for each of the installable packages. Such a repository is known as a *feedstock
 A feedstock is made up of a conda recipe (the instructions on what and how to build
 the package) and the necessary configurations for automatic building using freely
 available continuous integration services. Thanks to the awesome service provided by
-[CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/)
-and [TravisCI](https://travis-ci.com/) it is possible to build and upload installable
-packages to the [conda-forge](https://anaconda.org/conda-forge)
-[Anaconda-Cloud](https://anaconda.org/) channel for Linux, Windows and OSX respectively.
+[Azure](https://azure.microsoft.com/en-us/services/devops/), [GitHub](https://github.com/),
+[CircleCI](https://circleci.com/), [AppVeyor](https://www.appveyor.com/),
+[Drone](https://cloud.drone.io/welcome), and [TravisCI](https://travis-ci.com/)
+it is possible to build and upload installable packages to the
+[conda-forge](https://anaconda.org/conda-forge) [Anaconda-Cloud](https://anaconda.org/)
+channel for Linux, Windows and OSX respectively.
 
 To manage the continuous integration and simplify feedstock maintenance
 [conda-smithy](https://github.com/conda-forge/conda-smithy) has been developed.
